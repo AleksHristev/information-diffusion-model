@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=84.2.1"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "information-diffusion-model"
+version = "1.0.0"
+description = "Information diffusion model of US macroeconomic releases: epidemic, influence and predictive models, with a market-making backtest."
+readme = "README.md"
+requires-python = ">=3.12"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "Aleksandar Hristev" }]
+dependencies = [
+    "numpy>=2.5.4",
+    "pandas>=3.1.1",
+    "scipy>=1.18.1",
+    "numba>=0.68.1",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=9.2.0"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["information_diffusion*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra -p no:cacheprovider"
